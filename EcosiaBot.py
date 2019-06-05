@@ -12,7 +12,7 @@ class SeleniumTest():
 	    options.add_argument("--start-maximized")
 	    options.add_argument('--ignore-certificate-errors')
 	    options.add_argument("--mute-audio")
-	    self._driver = webdriver.Chrome(os.path.abspath("chromedriver.exe"))
+	    self._driver = webdriver.Chrome(os.path.abspath("chromedriver.exe"),chrome_options=options)
 	    self._actions = ActionChains(self._driver)
 	    self._driver.set_window_size(1250,1500)
     def search(self):
@@ -28,6 +28,8 @@ class SeleniumTest():
         except:
             pass
 if __name__ == "__main__":
-    rounds = 0
-    t = SeleniumTest()
-    t.search()
+    while True:
+        rounds = 0
+        t = SeleniumTest()
+        t.search()
+        self.driver.close()
